@@ -1,0 +1,257 @@
+% !TeX program = xelatex
+\documentclass[12pt,a4paper]{article}
+
+% <CONSPECTUM LANGUAGE SETUP START>
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[<FONTENC>]{fontenc}
+  \usepackage[<BABEL_LANG>]{babel}
+\else
+  \usepackage{fontspec}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \IfFontExistsTF{Times New Roman}{
+    \setmainfont{Times New Roman}
+  }{
+    \IfFontExistsTF{Noto Serif}{
+      \setmainfont{Noto Serif}
+    }{
+      \IfFontExistsTF{DejaVu Serif}{
+        \setmainfont{DejaVu Serif}
+      }{
+        \IfFontExistsTF{Liberation Serif}{
+          \setmainfont{Liberation Serif}
+        }{
+          \IfFontExistsTF{Arial}{
+            \setmainfont{Arial}
+          }{
+            \setmainfont{Latin Modern Roman}
+          }
+        }
+      }
+    }
+  }
+  \IfFontExistsTF{Arial}{
+    \setsansfont{Arial}
+  }{
+    \IfFontExistsTF{Noto Sans}{
+      \setsansfont{Noto Sans}
+    }{
+      \IfFontExistsTF{DejaVu Sans}{
+        \setsansfont{DejaVu Sans}
+      }{
+        \setsansfont{Latin Modern Sans}
+      }
+    }
+  }
+  \IfFontExistsTF{Consolas}{
+    \setmonofont{Consolas}
+  }{
+    \IfFontExistsTF{DejaVu Sans Mono}{
+      \setmonofont{DejaVu Sans Mono}
+    }{
+      \setmonofont{Latin Modern Mono}
+    }
+  }
+\fi
+% <CONSPECTUM LANGUAGE SETUP END>
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\IfFileExists{amsthm.sty}{\usepackage{amsthm}}{}
+\usepackage{xcolor}
+\IfFileExists{graphicx.sty}{\usepackage{graphicx}}{}
+\IfFileExists{array.sty}{\usepackage{array}}{}
+\IfFileExists{multicol.sty}{\usepackage{multicol}}{}
+\IfFileExists{caption.sty}{\usepackage{caption}}{}
+\IfFileExists{footmisc.sty}{\usepackage{footmisc}}{}
+\IfFileExists{geometry.sty}{
+  \usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm,headheight=15pt]{geometry}
+}{}
+\IfFileExists{booktabs.sty}{
+  \usepackage{booktabs}
+}{
+  \providecommand{\toprule}{\hline}
+  \providecommand{\midrule}{\hline}
+  \providecommand{\bottomrule}{\hline}
+}
+\IfFileExists{enumitem.sty}{
+  \usepackage{enumitem}
+  \setlist[enumerate]{leftmargin=*,itemsep=2pt,topsep=4pt}
+  \setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=4pt}
+}{}
+\newif\ifconspectumhyperref
+\IfFileExists{kvsetkeys.sty}{
+  \IfFileExists{hyperref.sty}{
+    \usepackage{hyperref}
+    \hypersetup{
+      colorlinks=true,
+      linkcolor=blue!55!black,
+      filecolor=magenta!70!black,
+      urlcolor=cyan!55!black,
+      pdfpagemode=UseOutlines
+    }
+    \conspectumhyperreftrue
+  }{
+    \conspectumhyperreffalse
+  }
+}{
+  \conspectumhyperreffalse
+}
+\ifconspectumhyperref
+  \IfFileExists{cleveref.sty}{
+    \usepackage{cleveref}
+  }{
+    \providecommand{\cref}[1]{\ref{#1}}
+    \providecommand{\Cref}[1]{\ref{#1}}
+  }
+\else
+  \providecommand{\href}[2]{#2}
+  \providecommand{\url}[1]{\texttt{#1}}
+  \providecommand{\cref}[1]{\ref{#1}}
+  \providecommand{\Cref}[1]{\ref{#1}}
+\fi
+\providecommand{\texorpdfstring}[2]{#1}
+\providecommand{\autoref}[1]{\ref{#1}}
+
+\newif\ifconspectumtcolorbox
+\IfFileExists{tcolorbox.sty}{
+  \usepackage{tcolorbox}
+  \conspectumtcolorboxtrue
+}{
+  \conspectumtcolorboxfalse
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\renewcommand{\abstractname}{<ABSTRACT_LABEL>}
+\renewcommand{\labelitemi}{--}
+\renewcommand{\labelitemii}{\(\circ\)}
+
+\definecolor{thmcolor}{RGB}{220,235,255}
+\definecolor{defcolor}{RGB}{232,247,228}
+\definecolor{excolor}{RGB}{255,244,220}
+\definecolor{remcolor}{RGB}{245,245,245}
+
+\providecommand{\mathbb}[1]{\mathbf{#1}}
+\providecommand{\mathcal}[1]{\mathit{#1}}
+\providecommand{\enquote}[1]{``#1''}
+\providecommand{\Beta}{\mathrm{B}}
+\providecommand{\bigsqcap}{\bigwedge}
+\providecommand{\bigsqcup}{\bigvee}
+\providecommand{\jump}[2]{\Delta #1\vert_{#2}}
+\makeatletter
+\@ifundefined{proof}{%
+  \newenvironment{proof}[1][Proof]{%
+    \par\noindent\textit{#1.}\ %
+  }{%
+    \hfill\textit{QED}\par
+  }%
+}{}
+\makeatother
+\providecommand{\qed}{\hfill\rule{0.5em}{0.5em}}
+
+\newcommand{\lecturetitle}{<INSERT TITLE HERE>}
+\title{\lecturetitle}
+\author{}
+\date{}
+
+\IfFileExists{fancyhdr.sty}{
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhf{}
+  \lhead{\footnotesize\textit{\lecturetitle}}
+  \rhead{\thepage}
+}{}
+
+\newtheorem{theorem}{<THEOREM_NAME>}[section]
+\newtheorem{definition}{<DEFINITION_NAME>}[section]
+\newtheorem{lemma}{<LEMMA_NAME>}[section]
+\newtheorem{proposition}{<PROPOSITION_NAME>}[section]
+\newtheorem{corollary}{<COROLLARY_NAME>}[section]
+\newtheorem{example}{<EXAMPLE_NAME>}[section]
+\newtheorem{remark}{<REMARK_NAME>}[section]
+
+\ifconspectumtcolorbox
+  \newenvironment{thmbox}[1][]{%
+    \begin{tcolorbox}[colback=thmcolor,colframe=blue!50!black,title={#1},fonttitle=\bfseries,arc=3pt,boxrule=0.5pt]
+  }{\end{tcolorbox}}
+  \newenvironment{defbox}[1][]{%
+    \begin{tcolorbox}[colback=defcolor,colframe=green!50!black,title={#1},fonttitle=\bfseries,arc=3pt,boxrule=0.5pt]
+  }{\end{tcolorbox}}
+  \newenvironment{lembox}[1][]{%
+    \begin{tcolorbox}[colback=yellow!10,colframe=orange!60!black,title={#1},fonttitle=\bfseries,arc=3pt,boxrule=0.5pt]
+  }{\end{tcolorbox}}
+  \newenvironment{propbox}[1][]{%
+    \begin{tcolorbox}[colback=purple!5,colframe=purple!55!black,title={#1},fonttitle=\bfseries,arc=3pt,boxrule=0.5pt]
+  }{\end{tcolorbox}}
+  \newenvironment{corbox}[1][]{%
+    \begin{tcolorbox}[colback=cyan!5,colframe=cyan!50!black,title={#1},fonttitle=\bfseries,arc=3pt,boxrule=0.5pt]
+  }{\end{tcolorbox}}
+  \newenvironment{exbox}[1][]{%
+    \begin{tcolorbox}[colback=excolor,colframe=brown!50!black,title={#1},fonttitle=\bfseries,arc=3pt,boxrule=0.5pt]
+  }{\end{tcolorbox}}
+  \newenvironment{rembox}[1][]{%
+    \begin{tcolorbox}[colback=remcolor,colframe=gray!55,title={#1},fonttitle=\bfseries,arc=3pt,boxrule=0.5pt]
+  }{\end{tcolorbox}}
+\else
+  \newcommand{\boxheading}[1]{%
+    \par\smallskip\noindent\textbf{#1}\par\smallskip
+  }
+  \newenvironment{thmbox}[1][]{%
+    \begin{quote}\color{blue!60!black}\boxheading{#1}\normalcolor
+  }{\end{quote}}
+  \newenvironment{defbox}[1][]{%
+    \begin{quote}\color{green!40!black}\boxheading{#1}\normalcolor
+  }{\end{quote}}
+  \newenvironment{lembox}[1][]{%
+    \begin{quote}\color{orange!70!black}\boxheading{#1}\normalcolor
+  }{\end{quote}}
+  \newenvironment{propbox}[1][]{%
+    \begin{quote}\color{violet!70!black}\boxheading{#1}\normalcolor
+  }{\end{quote}}
+  \newenvironment{corbox}[1][]{%
+    \begin{quote}\color{cyan!50!black}\boxheading{#1}\normalcolor
+  }{\end{quote}}
+  \newenvironment{exbox}[1][]{%
+    \begin{quote}\color{brown!70!black}\boxheading{#1}\normalcolor
+  }{\end{quote}}
+  \newenvironment{rembox}[1][]{%
+    \begin{quote}\color{black!70}\boxheading{#1}\normalcolor
+  }{\end{quote}}
+\fi
+
+\newenvironment{customtable}[3][htbp]{%
+  \begin{table}[#1]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \caption{#3}
+  \begin{tabular}{#2}
+}{%
+  \end{tabular}
+  \end{table}
+}
+
+% ============================================================
+% DOCUMENT STRUCTURE GUIDELINES
+% ============================================================
+%
+% - Use \section{}, \subsection{}, and \subsubsection{} to mirror lecture flow.
+% - Start each major section with a short orientation paragraph.
+% - Use boxes for definitions, important claims, examples, and remarks.
+% - Put formulas in math mode and prefer displayed equations for central results.
+% - Prefer tables only when comparison is clearer than prose.
+% - Keep the document faithful to the transcript; do not invent unsupported material.
+
+\begin{document}
+
+\maketitle
+\vspace{-2.5em}
+
+\begin{abstract}
+<INSERT ABSTRACT HERE>
+\end{abstract}
+
+%% <INSERT CONTENT HERE>
+
+\end{document}

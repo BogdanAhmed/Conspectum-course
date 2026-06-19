@@ -1,0 +1,60 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+secret/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Packaging
+build/
+dist/
+*.egg-info/
+
+# Runtime data and generated results
+logs/
+src/logs/
+static/results/
+static/result_*.tex
+static/result_*.pdf
+static/transcript_*.txt
+.tmp_pdf_check/
+*.wav
+*.pdf
+
+# LaTeX temporary files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+# IDE and operating system
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.iml
+*.ipr
+*.iws
+
+# Archives and temporary files
+*.bak
+*.tar
+*.tgz
+*.tmp
+*.zip
+*~

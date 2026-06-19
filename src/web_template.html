@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conspectum</title>
+    <meta
+        name="description"
+        content="Conspectum превращает аудио лекций в transcript, LaTeX и PDF в AI-powered academic workspace."
+    >
+    <link rel="stylesheet" href="/static/web.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="hero-section">
+            <nav class="topbar" aria-label="Основная навигация">
+                <a class="brand" href="/">
+                    <span class="brand-mark">C</span>
+                    <span class="brand-text">
+                        <strong>Conspectum</strong>
+                        <small>AI study workflow</small>
+                    </span>
+                </a>
+                <div class="topbar-badge">Transcript · LaTeX · PDF</div>
+            </nav>
+
+            <div class="hero-grid">
+                <section class="hero-copy">
+                    <div class="eyebrow">Academic AI Workspace</div>
+                    <h1>Превращает аудио лекции в аккуратный конспект, LaTeX и PDF</h1>
+                    <p class="hero-text">
+                        Премиальный AI-powered интерфейс для учёбы, исследований и технических заметок.
+                        Загрузи запись, отслеживай processing в реальном времени и получай
+                        study-ready материалы без ручной рутины.
+                    </p>
+
+                    <div class="hero-pills" aria-label="Возможности">
+                        <span class="hero-pill">AI-powered</span>
+                        <span class="hero-pill">Audio</span>
+                        <span class="hero-pill">Transcript</span>
+                        <span class="hero-pill">LaTeX</span>
+                        <span class="hero-pill">PDF</span>
+                        <span class="hero-pill">Multilingual</span>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a class="btn primary-btn" href="#workspace">Начать обработку</a>
+                        <a class="btn ghost-btn" href="#how-it-works">Как это работает</a>
+                    </div>
+
+                    <div class="hero-stats" aria-label="Ключевые преимущества">
+                        <article class="stat-card">
+                            <span>Поток</span>
+                            <strong>Audio -> AI -> Notes</strong>
+                        </article>
+                        <article class="stat-card">
+                            <span>Выход</span>
+                            <strong>TXT, TEX и PDF</strong>
+                        </article>
+                        <article class="stat-card">
+                            <span>Контроль</span>
+                            <strong>Live status и log</strong>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="hero-visual" aria-hidden="true">
+                    <div class="visual-noise"></div>
+                    <div class="visual-halo halo-a"></div>
+                    <div class="visual-halo halo-b"></div>
+                    <div class="visual-grid"></div>
+                    <div class="visual-cluster-shell"></div>
+                    <div class="visual-orbit orbit-a"></div>
+                    <div class="visual-orbit orbit-b"></div>
+                    <div class="visual-orbit orbit-c"></div>
+                    <div class="data-path path-a"></div>
+                    <div class="data-path path-b"></div>
+                    <div class="data-path path-c"></div>
+                    <div class="data-path path-d"></div>
+
+                    <div class="visual-card waveform-card">
+                        <div class="visual-card-head">
+                            <span class="signal-dot"></span>
+                            <span>Audio Input</span>
+                        </div>
+                        <div class="wave-bars">
+                            <span style="--h: 18px;"></span>
+                            <span style="--h: 34px;"></span>
+                            <span style="--h: 58px;"></span>
+                            <span style="--h: 42px;"></span>
+                            <span style="--h: 70px;"></span>
+                            <span style="--h: 49px;"></span>
+                            <span style="--h: 62px;"></span>
+                            <span style="--h: 36px;"></span>
+                            <span style="--h: 52px;"></span>
+                            <span style="--h: 24px;"></span>
+                            <span style="--h: 40px;"></span>
+                        </div>
+                    </div>
+
+                    <div class="visual-core">
+                        <div class="core-ring ring-a"></div>
+                        <div class="core-ring ring-b"></div>
+                        <div class="core-ring ring-c"></div>
+                        <div class="core-node">
+                            <span>AI</span>
+                            <small>compose</small>
+                        </div>
+                    </div>
+
+                    <div class="beam beam-left"></div>
+                    <div class="beam beam-right"></div>
+                    <div class="beam beam-bottom-left"></div>
+                    <div class="beam beam-bottom-right"></div>
+
+                    <div class="visual-card transcript-card">
+                        <div class="visual-card-head">
+                            <span class="signal-dot"></span>
+                            <span>Transcript</span>
+                        </div>
+                        <div class="text-lines">
+                            <span></span>
+                            <span></span>
+                            <span class="short"></span>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div class="visual-card formula-card">
+                        <div class="visual-card-head">
+                            <span class="signal-dot"></span>
+                            <span>LaTeX</span>
+                        </div>
+                        <div class="formula-line">\int_0^T v(t) dt = s(T)</div>
+                        <div class="formula-grid">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div class="visual-card pdf-card">
+                        <div class="visual-card-head">
+                            <span class="signal-dot"></span>
+                            <span>PDF Output</span>
+                        </div>
+                        <div class="pdf-sheet">
+                            <span class="pdf-line wide"></span>
+                            <span class="pdf-line"></span>
+                            <span class="pdf-line"></span>
+                            <span class="pdf-line short"></span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </header>
+
+        <main class="page-main">
+            <section class="app-shell" id="workspace">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">Working App</p>
+                        <h2>Обработка аудио в одном рабочем пространстве</h2>
+                    </div>
+                    <p class="section-note">
+                        Загрузи источник, задай параметры и следи за тем, как система
+                        собирает transcript, конспект и PDF в реальном времени.
+                    </p>
+                </div>
+
+                <div class="app-grid">
+                    <section class="panel composer-panel">
+                        <div class="panel-head">
+                            <div>
+                                <p class="panel-kicker">Input</p>
+                                <h3>Источник аудио</h3>
+                            </div>
+                            <button class="link-btn reset-btn" id="resetBtn" type="button">Очистить</button>
+                        </div>
+
+                        <div class="mode-switch" role="tablist" aria-label="Режим источника">
+                            <button class="mode-tab active" data-mode="file" type="button">Файл</button>
+                            <button class="mode-tab" data-mode="url" type="button">URL</button>
+                        </div>
+
+                        <div class="micro-card inline-hint-card">
+                            <span class="inline-hint-icon" aria-hidden="true"></span>
+                            <p id="taskHint">
+                                Выбери источник, при необходимости настрой язык и глубину, затем
+                                запусти обработку. Статус, log и файлы будут обновляться прямо на странице.
+                            </p>
+                        </div>
+
+                        <div class="composer-grid">
+                            <div class="source-stack">
+                                <div class="panel-block active" id="filePanel">
+                                    <form id="fileForm" enctype="multipart/form-data">
+                                        <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Зона загрузки аудио">
+                                            <div class="dropzone-icon" aria-hidden="true">
+                                                <span class="dropzone-wave">
+                                                    <i></i>
+                                                    <i></i>
+                                                    <i></i>
+                                                </span>
+                                                <span class="dropzone-arrow"></span>
+                                            </div>
+                                            <h4>Перетащи аудио сюда</h4>
+                                            <p>
+                                                Или выбери файл вручную. Подходят .wav, .mp3, .m4a, .ogg,
+                                                .opus, .flac, .aac, .mp4, .m4b и .webm.
+                                            </p>
+                                            <div class="dropzone-actions">
+                                                <label class="link-btn" for="fileInput">Выбрать файл</label>
+                                                <button class="btn primary-btn" id="submitFileBtn" type="submit">Обработать</button>
+                                            </div>
+                                            <input
+                                                id="fileInput"
+                                                type="file"
+                                                accept="audio/*,.wav,.mp3,.m4a,.ogg,.oga,.opus,.flac,.aac,.mp4,.m4b,.webm"
+                                            >
+                                        </div>
+                                    </form>
+                                    <div class="file-meta" id="fileMeta">
+                                        <strong>Файл ещё не выбран.</strong><br>
+                                        После выбора здесь появятся имя, размер и тип источника.
+                                    </div>
+                                </div>
+
+                                <div class="panel-block" id="urlPanel">
+                                    <form id="urlForm" class="url-form">
+                                        <label class="field-label" for="audioUrl">Прямой URL на аудио</label>
+                                        <input
+                                            id="audioUrl"
+                                            type="url"
+                                            placeholder="https://example.com/lecture-audio.mp3"
+                                            autocomplete="off"
+                                        >
+                                        <div class="micro-card">
+                                            <span class="card-label">Важно</span>
+                                            <p>
+                                                Нужна именно прямая ссылка на аудиофайл. Страницы
+                                                предпросмотра и защищённые share-links могут не скачаться.
+                                            </p>
+                                        </div>
+                                        <button class="btn primary-btn wide-btn" id="submitUrlBtn" type="submit">
+                                            Скачать и обработать
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <aside class="settings-stack">
+                                <div class="micro-card settings-card">
+                                    <span class="card-label">Settings</span>
+                                    <div class="field-grid">
+                                        <div class="field-group">
+                                            <label class="field-label" for="language">Язык конспекта</label>
+                                            <select id="language">
+                                                <option value="">Автоопределение</option>
+                                                <option value="en">Английский</option>
+                                                <option value="ru">Русский</option>
+                                            </select>
+                                        </div>
+                                        <div class="field-group">
+                                            <label class="field-label" for="detail">Глубина</label>
+                                            <select id="detail">
+                                                <option value="standard">Сбалансированно</option>
+                                                <option value="brief">Кратко</option>
+                                                <option value="detailed">Подробно</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="micro-card">
+                                    <span class="card-label">Что получится</span>
+                                    <ul class="feature-list">
+                                        <li>Транскрипт занятия в TXT</li>
+                                        <li>Структурированный LaTeX-конспект</li>
+                                        <li>Готовый PDF для учёбы и пересмотра</li>
+                                    </ul>
+                                </div>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <section class="dashboard visible" id="dashboard">
+                        <div class="status-layout">
+                            <section class="panel status-panel">
+                                <div class="panel-head status-head">
+                                    <div>
+                                        <p class="panel-kicker">Live Status</p>
+                                        <h3>Ход обработки</h3>
+                                    </div>
+                                    <div class="status-chip idle" id="statusChip">Готово к запуску</div>
+                                </div>
+
+                                <div class="status-badges">
+                                    <span class="chip" id="taskIdBadge">Новая задача</span>
+                                    <span class="chip" id="taskSourceBadge">Ожидает источник</span>
+                                </div>
+
+                                <div class="progress-head">
+                                    <div>
+                                        <span class="card-label">Текущий этап</span>
+                                        <strong id="progressText">Готово к запуску</strong>
+                                    </div>
+                                    <span class="progress-percent" id="progressPercent">0%</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+
+                                <div class="flow-steps" aria-label="Ключевые этапы">
+                                    <div class="flow-step pending" data-flow-step="upload">
+                                        <span>01</span>
+                                        <strong>Источник</strong>
+                                        <small>upload / fetch</small>
+                                    </div>
+                                    <div class="flow-step pending" data-flow-step="transcript">
+                                        <span>02</span>
+                                        <strong>Transcript</strong>
+                                        <small>speech to text</small>
+                                    </div>
+                                    <div class="flow-step pending" data-flow-step="summary">
+                                        <span>03</span>
+                                        <strong>Summary</strong>
+                                        <small>structure + LaTeX</small>
+                                    </div>
+                                    <div class="flow-step pending" data-flow-step="pdf">
+                                        <span>04</span>
+                                        <strong>PDF</strong>
+                                        <small>final export</small>
+                                    </div>
+                                </div>
+
+                                <div class="meta-hero-grid">
+                                    <div class="meta-tile meta-title-tile">
+                                        <span>Заголовок</span>
+                                        <strong id="taskTitle">Будет определён автоматически</strong>
+                                    </div>
+                                    <div class="meta-tile meta-stage-tile">
+                                        <span>Этап</span>
+                                        <strong id="taskStage">Ожидание запуска</strong>
+                                    </div>
+                                    <div class="meta-tile meta-source-tile">
+                                        <span>Источник</span>
+                                        <strong id="taskSource">Файл или URL</strong>
+                                    </div>
+                                </div>
+
+                                <div class="meta-support-grid">
+                                    <div class="meta-tile meta-support-tile">
+                                        <span>Язык</span>
+                                        <strong id="taskLanguage">Автоопределение</strong>
+                                    </div>
+                                    <div class="meta-tile meta-support-tile">
+                                        <span>Глубина</span>
+                                        <strong id="taskDetail">Сбалансированно</strong>
+                                    </div>
+                                </div>
+
+                                <div class="alert warning" id="warningBox"></div>
+                                <div class="alert error" id="errorBox"></div>
+                            </section>
+
+                            <section class="panel downloads-panel">
+                                <div class="panel-head">
+                                    <div>
+                                        <p class="panel-kicker">Outputs</p>
+                                        <h3>Файлы результата</h3>
+                                    </div>
+                                    <button class="link-btn" id="copySummaryBtn" type="button" disabled>
+                                        Скопировать конспект
+                                    </button>
+                                </div>
+
+                                <div class="result-note" id="resultSummary">
+                                    <strong>После обработки появятся:</strong><br>
+                                    transcript.txt, result.tex, result.pdf и архив со всеми файлами.
+                                </div>
+
+                                <div class="download-row" id="resultActions">
+                                    <span class="chip">transcript.txt</span>
+                                    <span class="chip">result.tex</span>
+                                    <span class="chip">result.pdf</span>
+                                </div>
+                            </section>
+                        </div>
+
+                        <section class="panel preview-panel">
+                            <div class="panel-head">
+                                <div>
+                                    <p class="panel-kicker">Workspace</p>
+                                    <h3>Предпросмотр и log</h3>
+                                </div>
+                            </div>
+
+                            <div class="tabs-bar">
+                                <button class="tab-btn active" type="button" data-tab="summary">Конспект</button>
+                                <button class="tab-btn" type="button" data-tab="transcript">Транскрипт</button>
+                                <button class="tab-btn" type="button" data-tab="log">Log</button>
+                            </div>
+
+                            <div class="tab-panel active" id="summaryTab">
+                                <div class="tab-actions">
+                                    <button class="link-btn" id="copySummaryTabBtn" type="button" disabled>
+                                        Скопировать
+                                    </button>
+                                </div>
+                                <pre class="preview-body" id="summaryPreview">Здесь появится финальный конспект после завершения обработки.</pre>
+                            </div>
+
+                            <div class="tab-panel" id="transcriptTab">
+                                <div class="tab-actions">
+                                    <button class="link-btn" id="copyTranscriptBtn" type="button" disabled>
+                                        Скопировать
+                                    </button>
+                                </div>
+                                <pre class="preview-body" id="transcriptPreview">Здесь появится транскрипт аудио после распознавания.</pre>
+                            </div>
+
+                            <div class="tab-panel" id="logTab">
+                                <div class="tab-actions tab-actions-spacer" aria-hidden="true"></div>
+                                <div class="log-wrap" id="logsContainer">
+                                    <div class="empty">Сообщения обработки появятся здесь сразу после старта задачи.</div>
+                                </div>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+            </section>
+
+            <section class="support-shell" id="how-it-works">
+                <div class="section-heading compact">
+                    <div>
+                        <p class="section-kicker">How It Works</p>
+                        <h2>Коротко о рабочем сценарии</h2>
+                    </div>
+                </div>
+
+                <div class="support-grid">
+                    <article class="info-card">
+                        <span class="info-index">01</span>
+                        <h3>Загрузи запись</h3>
+                        <p>
+                            Добавь локальный аудиофайл или прямую ссылку. Выбери язык и глубину,
+                            если хочешь управлять стилем итогового конспекта.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <span class="info-index">02</span>
+                        <h3>Следи за обработкой</h3>
+                        <p>
+                            Интерфейс показывает текущий stage, progress, служебные сообщения,
+                            предупреждения и ошибки без перезагрузки страницы.
+                        </p>
+                    </article>
+
+                    <article class="info-card">
+                        <span class="info-index">03</span>
+                        <h3>Забери готовые материалы</h3>
+                        <p>
+                            На выходе ты получаешь transcript, LaTeX и PDF, а также архив со всеми
+                            артефактами для дальнейшей работы.
+                        </p>
+                    </article>
+
+                    <article class="info-card wide">
+                        <div class="info-columns">
+                            <div>
+                                <span class="card-label">Поддерживаемые форматы</span>
+                                <p>.wav, .mp3, .m4a, .ogg, .opus, .flac, .aac, .mp4, .m4b, .webm</p>
+                            </div>
+                            <div>
+                                <span class="card-label">Для кого это</span>
+                                <p>Студенты, преподаватели, исследователи и все, кто работает с лекциями и техническими заметками.</p>
+                            </div>
+                            <div>
+                                <span class="card-label">Что особенно удобно</span>
+                                <p>Один интерфейс для upload, live status, preview результата и скачивания файлов без лишних шагов.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>Conspectum · transcript, LaTeX и PDF из аудио в одном премиальном workflow.</p>
+        </footer>
+    </div>
+
+    <script src="/static/web.js" defer></script>
+</body>
+</html>
