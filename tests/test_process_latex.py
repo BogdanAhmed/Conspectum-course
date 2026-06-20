@@ -50,8 +50,10 @@ class ProcessLatexTests(unittest.TestCase):
             self.assertEqual(engines[0], "xelatex")
         elif latex_engine_available("lualatex"):
             self.assertEqual(engines[0], "lualatex")
-        else:
+        elif latex_engine_available("pdflatex"):
             self.assertEqual(engines[0], "pdflatex")
+        else:
+            self.assertEqual(engines, [])
 
     def test_prepare_latex_document_normalizes_russian_unicode_math_tokens(self):
         prepared = build_prepared_document(
